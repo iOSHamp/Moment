@@ -11,8 +11,8 @@
 
  
  <tr>
-   <td align = "center"> :lipstcik: </td>
-   <td align = "center"> : lipstcik : </td>
+   <td align = "center"> :lipstick: </td>
+   <td align = "center"> : lipstick : </td>
     <td align = "center"> UI 작업 </td>
  </tr>
  
