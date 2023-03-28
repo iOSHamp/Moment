@@ -10,9 +10,17 @@
 import SwiftUI
 
 struct OliverDetailView: View {
+	
+	// button 1 feature
 	@State var heartScale: CGFloat = 1.0
 	@State var heartOpacity: CGFloat = 1.0
 	@State var heartDirection: [CGFloat] = [0.0, 0.0]
+	
+	// button 2 feature
+	@State var sajangSlide: CGFloat = 0.0
+	var positiveMove = 40.0
+	var negativeMove = -40.0
+	var timeInterval = 0.5
 	
 	var body: some View {
 		ZStack {
@@ -34,7 +42,25 @@ struct OliverDetailView: View {
 					Spacer()
 					
 					Button {
-						
+						sajangSlide = positiveMove
+						DispatchQueue.main.asyncAfter(deadline: .now() + 1*timeInterval) {
+							sajangSlide = negativeMove
+										}
+						DispatchQueue.main.asyncAfter(deadline: .now() + 2*timeInterval) {
+							sajangSlide = positiveMove
+										}
+						DispatchQueue.main.asyncAfter(deadline: .now() + 3*timeInterval) {
+							sajangSlide = negativeMove
+										}
+						DispatchQueue.main.asyncAfter(deadline: .now() + 4*timeInterval) {
+							sajangSlide = positiveMove
+										}
+						DispatchQueue.main.asyncAfter(deadline: .now() + 5*timeInterval) {
+							sajangSlide = negativeMove
+										}
+						DispatchQueue.main.asyncAfter(deadline: .now() + 6*timeInterval) {
+							sajangSlide = 0.0
+										}
 					} label: {
 						Text("②")
 							.font(.title)
@@ -58,6 +84,8 @@ struct OliverDetailView: View {
 					.frame(height: 30)
 				ZStack {
 					Image("tesBroSub3")
+						.offset(x: sajangSlide)
+						.animation(.easeInOut(duration: timeInterval), value: sajangSlide)
 					Image("tesBroSub1")
 						.resizable()
 						.scaledToFit()
