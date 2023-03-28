@@ -36,6 +36,13 @@
    <td align = "center"> : twisted_rightwards_arrows : </td>
     <td align = "center"> 병합 </td>
  </tr>
+
+ <tr>
+   <td align = "center"> :truck: </td>
+   <td align = "center"> : truck : </td>
+    <td align = "center"> 리소스 추가 </td>
+
+ </tr>
  
  <tr>
    <td align = "center"> :bricks: </td>
