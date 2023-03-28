@@ -10,11 +10,10 @@ import SwiftUI
 struct OliverSecretLetterView: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 15)
-			.frame(width: UIScreen.width * 0.85, height: UIScreen.width * 1.15)
+			.frame(width: UIScreen.width * 0.85, height: UIScreen.width * 1.05)
 			.foregroundColor(Color(red: 230/255, green: 220/255, blue: 210/255))
-			.opacity(0.85)
 			.overlay(
-				VStack(alignment: .center, spacing: 40){
+				VStack(alignment: .center, spacing: 30){
 					Text("행복 & 든든 맛집 테스형")
 						.font(.title2)
 					Text("우리의 테스형 첫 방문일은 \n Claudia의 생일이기도 했어요!")
@@ -28,6 +27,7 @@ struct OliverSecretLetterView: View {
 						.cornerRadius(10)
 					Text("")
 				}
+					.offset(y: 20)
 				
 			)
 		
