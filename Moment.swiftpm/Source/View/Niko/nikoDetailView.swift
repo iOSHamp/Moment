@@ -8,16 +8,34 @@
 import SwiftUI
 
 struct nikoDetailView: View {
+    
     var body: some View {
         ScrollView{
-            VStack{
-                Image("mainCard1")
-                Button {
-                   print("그 날의 추억")
-                } label: {
-                    Text("웰빙 아울렛")
+            ZStack{
+              
+                VStack{
+                    
+                    Image("mainCard1")
+                    Button {
+                        print("Let's go")
+                        }
+                label: {
+                        Text("What is Well-being?")
+                            .tint(.red)
+                    }
+                    
+                    Image("wellbeing")
+                    Image("statue")
+                    Image("cafe")
+                    Image("gate")
+                    Image("manequin")
+                    Image("tops")
+                    Image("sign")
+                    
+                    
                 }
-                
+                Text("웰빙 아울렛 그날의 추억")
+                    .offset(y:-150)
             }
         }
     }
