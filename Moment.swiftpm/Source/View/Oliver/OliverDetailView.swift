@@ -10,12 +10,20 @@
 import SwiftUI
 
 struct OliverDetailView: View {
+	@State var heartScale: CGFloat = 1.0
+	@State var heartOpacity: CGFloat = 1.0
+	@State var heartDirection: [CGFloat] = [0.0, 0.0]
+	
 	var body: some View {
 		ZStack {
 			VStack {
 				HStack {
 					Button {
-						
+						withAnimation(.linear(duration: 5.0)) {
+							heartScale = 10.0
+							heartOpacity = 0.0
+							heartDirection = [-10, -200]
+						}
 					} label: {
 						Text("①")
 							.font(.title)
@@ -56,7 +64,7 @@ struct OliverDetailView: View {
 						.frame(width: UIScreen.width)
 						.offset(y: 300)
 						.scaledToFit()
-				}
+				} // images
 				Text("")
 					.frame(height: 100)
 				
@@ -64,8 +72,10 @@ struct OliverDetailView: View {
 			
 			Image(systemName: "heart.fill")
 				.font(.system(size: 160))
-				.offset(x: 10, y: -100)
+				.offset(x: 10 + heartDirection[0], y: -100 + heartDirection[1])
 				.foregroundColor(.pink)
+				.scaleEffect(heartScale)
+				.opacity(heartOpacity)
 		}
 		
 	}
