@@ -35,7 +35,7 @@ struct nikoDetailView: View {
                     
                 }
                 Text("웰빙 아울렛 그날의 추억")
-                    .offset(y:-150)
+                    .offset(y:-260)
             }
         }
     }
