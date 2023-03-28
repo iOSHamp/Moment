@@ -10,35 +10,43 @@ import SwiftUI
 struct nikoDetailView: View {
     
     var body: some View {
-        ScrollView{
-            ZStack{
-              
-                VStack{
-                    
-                    Image("mainCard1")
-                    Button {
-                        print("Let's go")
-                        }
-                label: {
-                        Text("What is Well-being?")
-                            .tint(.red)
-                    }
-                    
-                    Image("wellbeing")
-                    Image("statue")
-                    Image("cafe")
-                    Image("gate")
-                    Image("manequin")
-                    Image("tops")
-                    Image("sign")
-                    
-                    
+        
+        
+        
+        ZStack{AngularGradient(gradient: Gradient(colors:[.red,.orange,.yellow,.green,.blue,.purple]), center: .center)
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack{
+                
+                Image("mainCard1")
+                Text("웰빙 아울렛.. 그날의 추억")
+                    .offset(y:-65)
+                Button {
+                    print("Let's go")
                 }
-                Text("웰빙 아울렛 그날의 추억")
-                    .offset(y:-260)
+            label: {
+                Text("What is Well-being?")
+                    .tint(.white)
+            }
+                
+                
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack{
+                        
+                        Image("wellbeing")
+                        Image("statue")
+                        Image("cafe")
+                        Image("gate")
+                        Image("manequin")
+                        Image("tops")
+                        Image("sign")
+                    }
+                }
             }
         }
     }
+    
+}
         
     
     struct nikoDetailView_Previews: PreviewProvider {
@@ -46,4 +54,4 @@ struct nikoDetailView: View {
             nikoDetailView()
         }
     }
-}
+
