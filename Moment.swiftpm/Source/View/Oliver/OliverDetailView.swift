@@ -22,6 +22,11 @@ struct OliverDetailView: View {
 	var negativeMove = -40.0
 	var timeInterval = 0.5
 	
+	// button 3 feature
+	@State var letterY: CGFloat = 0.0
+	@State var letterOpacity: CGFloat = 0.0
+	var letterYValue: CGFloat = -1000
+	
 	var body: some View {
 		ZStack {
 			VStack {
@@ -71,7 +76,8 @@ struct OliverDetailView: View {
 					Spacer()
 					
 					Button {
-						
+						letterY = letterYValue
+						letterOpacity = 1.0
 					} label: {
 						Text("③")
 							.font(.title)
@@ -105,6 +111,11 @@ struct OliverDetailView: View {
 				.scaleEffect(heartScale)
 				.opacity(heartOpacity)
 			
+			OliverSecretLetterView()
+				.offset(y: letterY - letterYValue)
+				.opacity(letterOpacity)
+				.animation(.easeInOut(duration: 2.5), value: letterY)
+				.animation(.linear(duration: 2.5), value: letterOpacity)
 		}
 		
 	}
