@@ -11,53 +11,55 @@ import SwiftUI
 
 struct OliverDetailView: View {
 	var body: some View {
-		VStack {
-			HStack {
-				Button {
+		ZStack {
+			VStack {
+				HStack {
+					Button {
+						
+					} label: {
+						Text("①")
+							.font(.title)
+					}
+					.buttonStyle(.borderedProminent)
+					.tint(.red)
 					
-				} label: {
-					Text("①")
-						.font(.title)
-				}
-				.buttonStyle(.borderedProminent)
-				.tint(.red)
-				
-				Spacer()
-				
-				Button {
+					Spacer()
 					
-				} label: {
-					Text("②")
-						.font(.title)
-				}
-				.buttonStyle(.borderedProminent)
-				.tint(.blue)
-				
-				Spacer()
-				
-				Button {
+					Button {
+						
+					} label: {
+						Text("②")
+							.font(.title)
+					}
+					.buttonStyle(.borderedProminent)
+					.tint(.blue)
 					
-				} label: {
-					Text("③")
-						.font(.title)
+					Spacer()
+					
+					Button {
+						
+					} label: {
+						Text("③")
+							.font(.title)
+					}
+					.buttonStyle(.borderedProminent)
+					.tint(.green)
+				} // buttons
+				.padding(.horizontal, 70)
+				Text("")
+					.frame(height: 30)
+				ZStack {
+					Image("tesBroSub3")
+					Image("tesBroSub1")
+						.resizable()
+						.scaledToFit()
+						.frame(width: UIScreen.width)
+						.offset(y: 300)
+						.scaledToFit()
 				}
-				.buttonStyle(.borderedProminent)
-				.tint(.green)
+				Text("")
+					.frame(height: 100)
 			}
-			.padding(.horizontal, 70)
-			Text("")
-				.frame(height: 30)
-			ZStack {
-				Image("tesBroSub3")
-				Image("tesBroSub1")
-					.resizable()
-					.offset(y: 300)
-					.scaledToFit()
-					
-			}
-			
-			Text("")
-				.frame(height: 100)
 		}
 		
 	}
