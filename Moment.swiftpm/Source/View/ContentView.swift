@@ -48,17 +48,19 @@ struct DeckOfCards : View {
 struct Card : View {
     
     var title:String
-
+    let back:String = "backCard"
+    
     @State var isFlip:Bool = false
     
     var body: some View {
         
         ZStack{
-            
+            Image(title)
+            Image()
             
         }
         
-        Image(title)
+        
         
         
     }
