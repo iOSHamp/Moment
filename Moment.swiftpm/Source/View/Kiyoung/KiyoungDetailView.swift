@@ -9,13 +9,7 @@ import SwiftUI
 
 struct KiyoungDetailView: View {
     var body: some View {
-        ZStack {
-            
-            Color.black
-                
-        }
-        .padding(.top,safeArea.top)
-        .ignoresSafeArea()
+
         
         
     }
