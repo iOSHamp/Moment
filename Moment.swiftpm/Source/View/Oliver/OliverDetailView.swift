@@ -104,6 +104,7 @@ struct OliverDetailView: View {
 				.foregroundColor(.pink)
 				.scaleEffect(heartScale)
 				.opacity(heartOpacity)
+			
 		}
 		
 	}
