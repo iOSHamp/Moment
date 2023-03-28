@@ -9,12 +9,23 @@ import SwiftUI
 
 struct nikoDetailView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView{
+            VStack{
+                Image("mainCard1")
+                Button {
+                   print("그 날의 추억")
+                } label: {
+                    Text("웰빙 아울렛")
+                }
+                
+            }
+        }
     }
-}
-
-struct nikoDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        nikoDetailView()
+        
+    
+    struct nikoDetailView_Previews: PreviewProvider {
+        static var previews: some View {
+            nikoDetailView()
+        }
     }
 }
