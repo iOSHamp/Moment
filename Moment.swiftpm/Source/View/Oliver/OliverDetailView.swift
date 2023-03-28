@@ -59,7 +59,13 @@ struct OliverDetailView: View {
 				}
 				Text("")
 					.frame(height: 100)
+				
 			}
+			
+			Image(systemName: "heart.fill")
+				.font(.system(size: 160))
+				.offset(x: 10, y: -100)
+				.foregroundColor(.pink)
 		}
 		
 	}
