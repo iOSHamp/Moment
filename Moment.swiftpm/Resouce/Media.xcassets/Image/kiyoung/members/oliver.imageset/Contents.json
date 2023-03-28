@@ -1,15 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "kiyoung.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "oliver 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "oliver 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

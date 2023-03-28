@@ -1,15 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "kayle.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "presentation 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "presentation 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
