@@ -1,6 +1,8 @@
+
+
 //
 //  SwiftUIView.swift
-//  
+//
 //
 //  Created by Wonil Lee on 2023/03/28.
 //
@@ -8,13 +10,61 @@
 import SwiftUI
 
 struct OliverDetailView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+	var body: some View {
+		VStack {
+			HStack {
+				Button {
+					
+				} label: {
+					Text("①")
+						.font(.title)
+				}
+				.buttonStyle(.borderedProminent)
+				.tint(.red)
+				
+				Spacer()
+				
+				Button {
+					
+				} label: {
+					Text("②")
+						.font(.title)
+				}
+				.buttonStyle(.borderedProminent)
+				.tint(.blue)
+				
+				Spacer()
+				
+				Button {
+					
+				} label: {
+					Text("③")
+						.font(.title)
+				}
+				.buttonStyle(.borderedProminent)
+				.tint(.green)
+			}
+			.padding(.horizontal, 70)
+			Text("")
+				.frame(height: 30)
+			ZStack {
+				Image("tesBroSub3")
+				Image("tesBroSub1")
+					.resizable()
+					.offset(y: 300)
+					.scaledToFit()
+					
+			}
+			
+			Text("")
+				.frame(height: 100)
+		}
+		
+	}
 }
 
 struct OliverDetailView_Previews: PreviewProvider {
-    static var previews: some View {
+	static var previews: some View {
 		OliverDetailView()
-    }
+	}
 }
