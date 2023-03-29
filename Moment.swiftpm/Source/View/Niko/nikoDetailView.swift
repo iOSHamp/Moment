@@ -28,21 +28,23 @@ struct nikoDetailView: View {
         
         
         
-        ZStack{AngularGradient(gradient: Gradient(colors:[.white,.pink]), center: .top)
+        ZStack{AngularGradient(gradient: Gradient(colors:[.white,.purple]), center: .top)
                 .edgesIgnoringSafeArea(.all) //배경색
             
             VStack{
+                ZStack{
+                    Image("mainCard2")
+                        .rotationEffect(.degrees(3), anchor: UnitPoint(x:1, y: 0.5))
+                    
+                    Text("🌈 우리들의 아지트 웰빙 아울렛")
+                        .offset(y:130)
+                        .font(.system(size: 13))
+                        .foregroundColor(Color(hex: 0x7f6966))
+                        .rotationEffect(.degrees(3), anchor: UnitPoint(x:1, y: -8))
+                }
                 
-                Image("mainCard2")
-                    .rotationEffect(.degrees(3), anchor: UnitPoint(x:1, y: 0.5))
-                Text("🌈 우리들의 아지트 웰빙 아울렛")
-                    .offset(y:-43)
-                    .font(.system(size: 13))
-                    .foregroundColor(Color(hex: 0x7f6966))
-                    .rotationEffect(.degrees(3), anchor: UnitPoint(x:1, y: -8))
                 //사진 추가 후 위에 텍스트 얹기
-                Spacer()
-                    .frame(height: 100.0)
+                    
                 /*   Button {
                  print("Let's go")
                  
@@ -74,18 +76,26 @@ struct nikoDetailView: View {
                     diarySheet = diarySheetValue
                     diaryOpacity = 1.0
                 } label: {
-                    Text(" 니코의 비밀일기장")
+                    Text(" 니꼬의 비밀일기장")
                         .font(.system(size: 25))
                         .fontWeight(.bold)
                         .foregroundColor(Color(hex: 0xffffff))
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(.red.opacity(0.3))
-                .padding(.bottom,20)
-            }.offset(y:-30)
+                .tint(Color(hex: 0x9940ff).opacity(0.5))
+                .offset(y:80)
+                .shadow(radius: 4)
+                
+            }
+            .offset(y:-80)
+            
+            
                 ZStack{
+                    Rectangle()
+                        .frame(width: 500.0, height: 1000.0)
+                        .foregroundColor(Color(red: 0.924, green: 0.84, blue: 0.979))
                     Image("diary")
-                    Text("암호를 대시오.\n포항 최고의 패션 성지는?")
+                    Text("암호를 선택하시오.\n\"포항 최고의 패션 성지는?\"")
                         .font(.system(size: 25))
                         .fontWeight(.bold)
                         .offset(y:-60)
@@ -98,24 +108,27 @@ struct nikoDetailView: View {
                         }) {
                             Text("⓵ 웰빙아울렛")
                                 .font(.system(size: 20))
+                                .fontWeight(.bold)
                                 .foregroundColor(Color(hex: 0x000000))
-                                .background(Color(hex: 0xffffff).opacity(0.5))
+                                .background(Color(hex: 0x7080ff).opacity(0.3))
                         }
                         Button(action: {
                             self.showImage.toggle()
                         }) {
                             Text("⓶ 효자동 웰빙아울렛")
                                 .font(.system(size: 20))
+                                .fontWeight(.bold)
                                 .foregroundColor(Color(hex: 0x000000))
-                                .background(Color(hex: 0xffffff).opacity(0.5))
+                                .background(Color(hex: 0x7080ff).opacity(0.3))
                         }
                         Button(action: {
                             self.showImage.toggle()
                         }) {
                             Text("⓶ 웰빙 거기")
                                 .font(.system(size: 20))
+                                .fontWeight(.bold)
                                 .foregroundColor(Color(hex: 0x000000))
-                                .background(Color(hex: 0xffffff).opacity(0.5))
+                                .background(Color(hex: 0x7080ff).opacity(0.3))
                         }
                     }
                     .padding(.leading, -30.0)
@@ -126,25 +139,46 @@ struct nikoDetailView: View {
                     .ignoresSafeArea()
                     .offset(x: diarySheet - diarySheetValue )
                     .opacity(diaryOpacity)
-                    .animation(.easeInOut(duration: 3.0), value: diarySheet)
-                .animation(.linear(duration: 3.0), value: diaryOpacity)
+                    .animation(.easeInOut(duration: 1.5), value: diarySheet)
+                .animation(.linear(duration: 1.5), value: diaryOpacity)
                 
                 
                 if showImage {
                     ZStack{
+                        Rectangle()
+                            .frame(width: 500.0, height: 1000.0)
+                            .foregroundColor(Color(red: 0.924, green: 0.84, blue: 0.979))
+                            
                         Image("diary")
                             .padding(.top,-130)
                            .offset(x:30, y:-170)
-                           .ignoresSafeArea()
                         
-                        Text("🎉 정답! \n아래의 스티커를 눌러보세요.")
+                        Button {
+                            diarySheet = diarySheetValue
+                            diaryOpacity = 1.0
+                        } label: {
+                            Text("🎉 정답! \n아래의 스티커를 눌러보세요.")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(hex: 0xffffff))
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(Color(hex: 0x9940ff).opacity(0.5))
+                        .shadow(radius: 3)
+                        .offset(y:50)
+                        
+                        
+                        /*Text("🎉 정답! \n아래의 스티커를 눌러보세요.")
+                            .fontWeight(.bold)
                             .multilineTextAlignment(.center)
-                            .offset(y:100)
-                            .foregroundColor(Color(hex: 0x555555))
+                            .offset(y:140)*/
                         
                         ScrollView(.horizontal, showsIndicators: true)
                         {
                             HStack{
+                                Text("")
+                                    .padding(.leading, 70.0)
+                                
                                 Button(action: {
                                     self.showDetails1.toggle()
                                 }) {
@@ -193,11 +227,13 @@ struct nikoDetailView: View {
                                     Image("sign")
                                         .renderingMode(.original)
                                 }
+                                Text("")
+                                    .padding(.leading, 70.0)
                                 
                             }
+                            .background(Color(hex: 0x7080ff).opacity(0.1))
                         }
-                        .padding(.horizontal, 70.0)
-                        .offset(y: 300)
+                        .offset(y: 240)
                     }
                 }
             
@@ -264,7 +300,7 @@ struct nikoDetailView: View {
                     Text("#웰빙아울렛")
                         .fontWeight(.semibold)
                         .offset(x:140, y:-82)
-                        .foregroundColor(Color(hue: 0.997, saturation: 0.422, brightness: 1.0))
+                        .foregroundColor(Color(hex: 0x9940ff))
                 }
 
                 }
