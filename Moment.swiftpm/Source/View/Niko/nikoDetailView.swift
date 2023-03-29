@@ -34,7 +34,6 @@ struct nikoDetailView: View {
             VStack{
                 
                 Image("mainCard2")
-                 
                     .rotationEffect(.degrees(3), anchor: UnitPoint(x:1, y: 0.5))
                 Text("🌈 우리들의 아지트 웰빙 아울렛")
                     .offset(y:-43)
@@ -42,7 +41,8 @@ struct nikoDetailView: View {
                     .foregroundColor(Color(hex: 0x7f6966))
                     .rotationEffect(.degrees(3), anchor: UnitPoint(x:1, y: -8))
                 //사진 추가 후 위에 텍스트 얹기
-                
+                Spacer()
+                    .frame(height: 100.0)
                 /*   Button {
                  print("Let's go")
                  
@@ -59,16 +59,16 @@ struct nikoDetailView: View {
                  }*/
                 
                 /* Button(action: {
-                    self.showImage.toggle()
-                }) {
-                    Text(" 니코의 비밀일기장")
-                        .font(.system(size: 25))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color(hex: 0xffffff))
-                }
-                .buttonStyle(.borderedProminent)
-                    .tint(.red.opacity(0.3))
-                    .padding(.bottom,20)// 사진 펼쳐지는 버튼 */
+                 self.showImage.toggle()
+                 }) {
+                 Text(" 니코의 비밀일기장")
+                 .font(.system(size: 25))
+                 .fontWeight(.bold)
+                 .foregroundColor(Color(hex: 0xffffff))
+                 }
+                 .buttonStyle(.borderedProminent)
+                 .tint(.red.opacity(0.3))
+                 .padding(.bottom,20)// 사진 펼쳐지는 버튼 */
                 
                 Button {
                     diarySheet = diarySheetValue
@@ -80,9 +80,9 @@ struct nikoDetailView: View {
                         .foregroundColor(Color(hex: 0xffffff))
                 }
                 .buttonStyle(.borderedProminent)
-                    .tint(.red.opacity(0.3))
-                    .padding(.bottom,20)
-                
+                .tint(.red.opacity(0.3))
+                .padding(.bottom,20)
+            }.offset(y:-30)
                 ZStack{
                     Image("diary")
                     Text("암호를 대시오.\n포항 최고의 패션 성지는?")
@@ -124,7 +124,7 @@ struct nikoDetailView: View {
                 }.padding(.top,-130)
                     .offset(x:30, y:-170)
                     .ignoresSafeArea()
-                    .offset(y: diarySheetValue - diarySheet - 210)
+                    .offset(x: diarySheet - diarySheetValue )
                     .opacity(diaryOpacity)
                     .animation(.easeInOut(duration: 3.0), value: diarySheet)
                 .animation(.linear(duration: 3.0), value: diaryOpacity)
@@ -132,11 +132,15 @@ struct nikoDetailView: View {
                 
                 if showImage {
                     ZStack{
+                        Image("diary")
+                            .padding(.top,-130)
+                           .offset(x:30, y:-170)
+                           .ignoresSafeArea()
+                        
                         Text("🎉 정답! \n아래의 스티커를 눌러보세요.")
                             .multilineTextAlignment(.center)
-                            .offset(y:-255)
+                            .offset(y:100)
                             .foregroundColor(Color(hex: 0x555555))
-                            .padding(.bottom,-50)
                         
                         ScrollView(.horizontal, showsIndicators: true)
                         {
@@ -146,7 +150,6 @@ struct nikoDetailView: View {
                                 }) {
                                     Image("wellbeing")
                                         .renderingMode(.original)
-                                        .rotationEffect(.degrees(0), anchor: UnitPoint(x:1, y: -8))
                                 }
                                 
                                 Button(action: {
@@ -154,7 +157,6 @@ struct nikoDetailView: View {
                                 }) {
                                     Image("statue")
                                         .renderingMode(.original)
-                                        .rotationEffect(.degrees(-2), anchor: UnitPoint(x:2, y: 0))
                                 }
                                 
                                 Button(action: {
@@ -162,7 +164,6 @@ struct nikoDetailView: View {
                                 }) {
                                     Image("cafe")
                                         .renderingMode(.original)
-                                        .rotationEffect(.degrees(-1), anchor: UnitPoint(x:1, y: 0))
                                 }
                                 
                                 Button(action: {
@@ -194,11 +195,12 @@ struct nikoDetailView: View {
                                 }
                                 
                             }
-                            //.background(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.orange,Color.yellow,Color.red]), startPoint: .leading, endPoint: .trailing).opacity(0.5).ignoresSafeArea(edges: .horizontal))
-                        } .padding(.horizontal, 70.0)
+                        }
+                        .padding(.horizontal, 70.0)
+                        .offset(y: 300)
                     }
                 }
-            }
+            
             ZStack{
                 if showImage {
                     ZStack{
