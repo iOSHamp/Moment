@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SwiftUIView: View {
+struct ClaudiaDetailView: View {
     var body: some View {
         
         ZStack {
@@ -41,8 +41,8 @@ struct SwiftUIView: View {
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct ClaudiaDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView()
+        ClaudiaDetailView()
     }
 }
