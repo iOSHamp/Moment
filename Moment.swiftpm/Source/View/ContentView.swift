@@ -2,19 +2,18 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var flip:Bool = false
-    @State var opacity:CGFloat = .zero
-    @State var backopacity:CGFloat = 1
     
     
     var body: some View {
-        ZStack {
-           
-            DeckOfCards()
-           
-                
+        NavigationView {
+            ZStack {
+               
+                DeckOfCards()
+               
+                    
+            }
+            .ignoresSafeArea()
         }
-        .ignoresSafeArea()
         
         
     }
@@ -25,6 +24,7 @@ struct DeckOfCards : View {
     
     let limitOfCard:Int = 8
     let offset:Double = 2
+    let dummies:[Int] = [0,3,7]
     
     var body: some View {
         
@@ -32,7 +32,7 @@ struct DeckOfCards : View {
             
             ForEach(0..<limitOfCard, id: \.self) { index in
                 
-                Card(title:"mainCard\(index+1)")
+                Card(isEaster: dummies.contains(index)  ,title:"mainCard\(index+1)")
                     .rotationEffect(Angle(degrees: offset * Double(index) ))
             }
             
@@ -82,10 +82,13 @@ struct Card : View {
     @State var backDegree = 0.0
     @State var frontDegree = -90.0
     @State var isFlipped = false
-    
+    @State var moveDetail = false
+    @State var isHidden:Bool = false
+    var isEaster:Bool
     
     let durationAndDelay : CGFloat = 0.2
     var title:String
+    
     
     
     func flipCard () {
@@ -97,15 +100,25 @@ struct Card : View {
               withAnimation(.linear(duration: durationAndDelay).delay(durationAndDelay)){
                   frontDegree = 0
               }
-          } else {
-              withAnimation(.linear(duration: durationAndDelay)) {
-                  frontDegree = -90
-              }
-              withAnimation(.linear(duration: durationAndDelay).delay(durationAndDelay)){
-                  backDegree = 0
-              }
           }
       }
+    
+    func goDetail() {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            moveDetail = true
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                isHidden = true
+            }
+            
+        }
+        
+        
+        
+        
+    }
+    
     
     
     var body: some View {
@@ -115,12 +128,25 @@ struct Card : View {
             FrontCard(title: title, degree: $frontDegree)
             BackCard(degree: $backDegree)
            
-
+            NavigationLink(destination: Text("Hello"), isActive: $moveDetail) {
+                EmptyView()
+            }
+            
         }
+        .opacity(isHidden ? 0 : 1)
         .frame(width:UIScreen.height/3,height:UIScreen.height)
         .onTapGesture {
             flipCard()
+            
+            if isFlipped {
+                goDetail()
+                
+            }
+            
+            
+            
         }
+        
         
         
         
