@@ -15,6 +15,29 @@ struct KiyoungDetailView: View {
         
         ZStack{
             
+            Rectangle()
+                .frame(width: 330, height: 200)
+                .cornerRadius(20)
+                .offset(y:-250)
+                .opacity(0.1)
+            
+            
+            Text("To. Pierce")
+                .offset(x:-80 , y:-320)
+                .font(
+                    .title
+                        .weight(.black))
+            Text("걱정하지마!")
+                .offset(x:-90,y:-265)
+                .font(
+                    .title
+                        .weight(.black))
+            Text("우리의 발표는 최고였으니까!")
+                .offset(y:-230)
+                .font(
+                    .title
+                        .weight(.black))
+            
             
             Text("We are Pierce!")
                 .offset(y:-120)
