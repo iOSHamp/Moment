@@ -14,10 +14,15 @@ struct KiyoungDetailView: View {
     var body: some View {
         
         ZStack{
+            
+            
             Text("We are Pierce!")
                 .offset(y:-120)
-                .font(.largeTitle)
-               
+                .font(
+                    .largeTitle
+                        .weight(.black))
+            
+                
             Image("presentation")
                 .resizable()
                 .frame(width: 300, height: 180)
@@ -27,6 +32,7 @@ struct KiyoungDetailView: View {
                 .shadow(color: .gray, radius: 15,x:10, y: 20)
                 .offset(y:0)
             HStack{
+        
                 Image("oliver").offset(y:offsetY+30)
                 Image("clau").offset(y:offsetY+20)
                 Image("puppy").offset(y:offsetY)
