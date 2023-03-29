@@ -98,6 +98,7 @@ struct Card : View {
     var index:Int
     
     
+    
     func flipCard () {
           isFlipped = !isFlipped
           if isFlipped {
@@ -112,7 +113,6 @@ struct Card : View {
     
     func goDetail() {
         
-        print("title: \(title) isEaster:\(isEaster)")
         if isEaster {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 moveDetail = true
@@ -149,19 +149,55 @@ struct Card : View {
         
     }
     
+    func getDestination (index:Int) -> AnyView {
+        
+        
+        switch index {
+            
+        case 1:
+            return AnyView(ClaudiaDetailView())
+            
+        case 2:
+            return AnyView(nikoDetailView())
+                
+        case 4:
+            return AnyView(PuppyDetailView())
+            
+        case 5:
+            return AnyView(OliverDetailView())
+                     
+        case 6:
+            return AnyView(KiyoungDetailView())
+       
+            
+        case 8:
+                                
+            return AnyView(KayleDetailView())
+
+            
+        default:
+                AnyView(EmptyView())
+        }
+        
+        return AnyView(EmptyView())
+        
+    }
     
     
     var body: some View {
         
         ZStack{
-
+            
             FrontCard(title: title, degree: $frontDegree)
             BackCard(degree: $backDegree)
-           
-            NavigationLink(destination: ClaudiaDetailView(), isActive: $moveDetail) {
-                EmptyView()
-            }
             
+            NavigationLink(destination: getDestination(index: index), isActive: $moveDetail) {
+                EmptyView()
+                
+                
+                
+                
+            }
         }
         .opacity(isHidden ? 0 : 1)
         .frame(width:UIScreen.height/3,height:UIScreen.height)
