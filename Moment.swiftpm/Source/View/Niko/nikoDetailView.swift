@@ -26,11 +26,12 @@ struct nikoDetailView: View {
             
             VStack{
                 
-                Image("mainCard1")
+                Image("mainCard2")
+                 
                     .rotationEffect(.degrees(3), anchor: UnitPoint(x:1, y: 0.5))
                 Text("🌈 우리들의 아지트 웰빙 아울렛")
-                    .offset(y:-65)
-                    .font(.system(size: 18))
+                    .offset(y:-43)
+                    .font(.system(size: 13))
                     .foregroundColor(Color(hex: 0x7f6966))
                     .rotationEffect(.degrees(3), anchor: UnitPoint(x:1, y: -8))
                 //사진 추가 후 위에 텍스트 얹기
