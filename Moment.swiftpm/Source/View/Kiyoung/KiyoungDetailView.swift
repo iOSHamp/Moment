@@ -12,6 +12,7 @@ struct KiyoungDetailView: View {
     @State var danceOff: CGFloat = 250
     @State var isOn = false
     @State var opacityOff = false
+    @State var opacityMessage = false
     var body: some View {
         
         ZStack{
@@ -55,6 +56,48 @@ struct KiyoungDetailView: View {
                 .opacity(opacityOff ?  0.1 : 1)
                 .animation(.easeIn(duration: 1.5), value: opacityOff)
             
+          
+          /*  Image(systemName: "message.badge.filled.fill")
+                .foregroundStyle(.red, .green)
+                .font(.system(size: 80))
+                .onTapGesture {
+                    opacityMessage = !opacityMessage
+                }
+                .opacity(opacityMessage ? 0 : 1)
+                .animation(.easeOut(duration: 0.5), value: opacityMessage)
+                .offset(x:-100,y:-240)
+
+            Image(systemName: "message.fill")
+                .foregroundStyle(.green)
+                .font(.system(size: 80))
+                .opacity(opacityMessage ? 1 : 0)
+                .animation(.easeOut(duration: 0.5), value: opacityMessage)
+                .offset(x:-100,y:-240)
+            
+            Image(systemName: "bubble.right.fill")
+                .foregroundStyle(.blue)
+                .font(.system(size: 180))
+                .opacity(opacityMessage ? 1 : 0)
+                .animation(.easeOut(duration: 1), value: opacityMessage)
+                .offset(x:70,y:-240)
+            
+            Text("MC1 Pierce와 함께라서")
+                .offset(x:70,y:-270)
+                .opacity(opacityMessage ? 1 : 0)
+                .animation(.easeOut(duration: 1), value: opacityMessage)
+                .font(
+                    .callout
+                        .weight(.black))
+                .foregroundColor(.white)
+            Text("너무 즐겁고 행복했어요!")
+                .offset(x:70,y:-240)
+                .opacity(opacityMessage ? 1 : 0)
+                .animation(.easeOut(duration: 1), value: opacityMessage)
+                .font(
+                    .callout
+                        .weight(.black))
+                .foregroundColor(.white)
+            */
             Text("We are Pierce!")
                 .offset(y:-120)
                 .font(
