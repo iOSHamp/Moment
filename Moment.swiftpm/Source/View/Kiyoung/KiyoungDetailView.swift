@@ -52,7 +52,7 @@ struct KiyoungDetailView: View {
                 .onTapGesture {
                     opacityOff = !opacityOff
                 }
-                .opacity(opacityOff ?  0 : 1)
+                .opacity(opacityOff ?  0.1 : 1)
                 .animation(.easeIn(duration: 1.5), value: opacityOff)
             
             Text("We are Pierce!")
