@@ -21,12 +21,18 @@ struct nikoDetailView: View {
                 Image("mainCard1")
                 Text("웰빙 아울렛.. 그날의 추억")
                     .offset(y:-65)
+                    .font(.system(size: 18))
+                    .foregroundColor(Color(hex: 0x7f6966))
+                
                 Button {
                     print("Let's go")
                 }
             label: {
-                Text("What is Well-being?")
-                    .tint(.white)
+                Text("What is Well-being?   ")
+                    .font(.system(size: 25))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color(hex: 0xffbe3e))
+                    .background(Color(hex: 0x000000).opacity(0.8))
             }
                 
                 
