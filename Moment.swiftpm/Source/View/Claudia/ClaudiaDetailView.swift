@@ -180,7 +180,7 @@ struct EmitterView: UIViewRepresentable {
         return emitterCells
     }
     func getColor()->UIColor{
-        let colors : [UIColor] = [.systemOrange, .systemCyan, .systemPink, .systemTeal]
+        let colors : [UIColor] = [.systemOrange, .systemCyan, .systemPink, .systemTeal, .systemMint, .systemGreen, .systemPurple, .systemYellow]
         
         return colors.randomElement()!
     }
