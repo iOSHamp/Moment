@@ -43,9 +43,6 @@ struct DeckOfCards : View {
                     .rotationEffect(Angle(degrees: offset * Double(index) ))
             }
             
-            
-            
-            
         }
         
     }
@@ -98,7 +95,6 @@ struct Card : View {
     var index:Int
     
     
-    
     func flipCard () {
           isFlipped = !isFlipped
           if isFlipped {
@@ -109,25 +105,22 @@ struct Card : View {
                   frontDegree = 0
               }
           }
+        
       }
     
     func goDetail() {
         
         if isEaster {
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 moveDetail = true
-                
-                
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     
                     isHidden = true
                     
-                    
                 }
-                
-                
-                
+    
             }
         }
         
@@ -141,11 +134,6 @@ struct Card : View {
                 
             }
         }
-        
-        
-        
-        
-        
         
     }
     
@@ -172,7 +160,7 @@ struct Card : View {
             
         case 8:
                                 
-            return AnyView(KayleDetailView())
+            return AnyView(KayleDetailView(resultHour: 0, resultMin: 0, resultSec: 0))
 
             
         default:
@@ -184,18 +172,37 @@ struct Card : View {
     }
     
     
+    
+
     var body: some View {
         
         ZStack{
             
+            
             FrontCard(title: title, degree: $frontDegree)
             BackCard(degree: $backDegree)
             
+            if isFlipped && isEaster {
+                ZStack{
+                    Circle()
+                    .fill(Color.blue)
+                    .frame(width: 12, height: 12)
+                    .modifier(ParticlesModifier())
+                    .offset(x: -100, y : -50)
+                
+                Circle()
+                    .fill(Color.red)
+                    .frame(width: 12, height: 12)
+                    .modifier(ParticlesModifier())
+                    .offset(x: 60, y : 70)
+                }
+            } else {
+                Text("")
+            }
+            
             NavigationLink(destination: getDestination(index: index), isActive: $moveDetail) {
                 EmptyView()
-                
-                
-                
+
                 
             }
         }
@@ -204,7 +211,8 @@ struct Card : View {
 
         .onTapGesture {
             flipCard()
-            
+
+
             if isFlipped {
                 goDetail()
                 
@@ -216,16 +224,53 @@ struct Card : View {
         .onAppear{
             
             
-            
-            
+                    
         }
-        
-        
-        
-        
+
         
     }
     
+}
+
+struct FireworkParticlesGeometryEffect : GeometryEffect {
+    var time : Double
+    var speed = Double.random(in: 20 ... 200)
+    var direction = Double.random(in: -Double.pi ...  Double.pi)
+    
+    var animatableData: Double {
+        get { time }
+        set { time = newValue }
+    }
+    func effectValue(size: CGSize) -> ProjectionTransform {
+        let xTranslation = speed * cos(direction) * time
+        let yTranslation = speed * sin(direction) * time
+        let affineTranslation =  CGAffineTransform(translationX: xTranslation, y: yTranslation)
+        return ProjectionTransform(affineTranslation)
+    }
+}
+
+struct ParticlesModifier: ViewModifier {
+    @State var time = 0.0
+    @State var scale = 0.1
+    let duration = 5.0
+    
+    func body(content: Content) -> some View {
+        ZStack {
+            ForEach(0..<100, id: \.self) { index in
+                content
+                    .hueRotation(Angle(degrees: time * 80))
+                    .scaleEffect(scale)
+                    .modifier(FireworkParticlesGeometryEffect(time: time))
+                    .opacity(((duration-time) / duration))
+            }
+        }
+        .onAppear {
+            withAnimation (.easeOut(duration: duration)) {
+                self.time = duration
+                self.scale = 1.0
+            }
+        }
+    }
 }
 
 
