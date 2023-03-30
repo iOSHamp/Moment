@@ -107,11 +107,11 @@ struct Home: View {
                 }
             
             }
-//        .onAppear() {
-//            let song = NSDataAsset (name: "bycle")
-//            self.audio = try! AVAudioPlayer(data: song!.data, fileTypeHint: "mp3")
-//            self.audio.play()
-//        }
+        .onAppear() {
+            let song = NSDataAsset (name: "reminiscenceCut")
+            self.audio = try! AVAudioPlayer(data: song!.data, fileTypeHint: "mp3")
+            self.audio.play()
+        }
             // ScrollView를 이용해 각 사진의 미리보기 이미지를 표시
             .overlay {
                 if let photo = detailPhoto, showDetailView{
