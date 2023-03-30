@@ -13,7 +13,7 @@ struct KiyoungDetailView: View {
     @State var isOn = false
     @State var opacityOff = false
     @State var opacityMessage = false
-    @State var changeOffsetX: CGFloat = 0
+    @State var changeOffsetX = false
     var body: some View {
         
         ZStack{
@@ -66,21 +66,22 @@ struct KiyoungDetailView: View {
                 }
                 .opacity(opacityMessage ? 0 : 1)
                 .offset(x:opacityMessage ? -100 : 0,y:-240)
-                .animation(.easeOut(duration: 0.5), value: opacityMessage)
+                .animation(.easeOut(duration: 1.7), value: opacityMessage)
+              
                 
 
             Image(systemName: "message.fill")
                 .foregroundStyle(.green)
                 .font(.system(size: 80))
                 .opacity(opacityMessage ? 1 : 0)
-                .animation(.easeOut(duration: 1.5).delay(0.1), value: opacityMessage)
+                .animation(.easeOut(duration: 1.5).delay(1.2), value: opacityMessage)
                 .offset(x:-100,y:-240)
             
             Image(systemName: "bubble.right.fill")
                 .foregroundStyle(.blue)
                 .font(.system(size: 180))
                 .opacity(opacityMessage ? 1 : 0)
-                .animation(.easeOut(duration: 1.5), value: opacityMessage)
+                .animation(.easeOut(duration: 1.5).delay(1.4), value: opacityMessage)
                 .offset(x:70,y:-240)
             
             Text("MC1 Pierce와 함께라서")
