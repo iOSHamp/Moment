@@ -304,6 +304,7 @@ struct nikoDetailView: View {
                 }
 
                 }
+            .padding(.top,70)
             }
         }
     }

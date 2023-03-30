@@ -87,7 +87,7 @@ struct KiyoungDetailView: View {
             Text("MC1 Pierce와 함께라서")
                 .offset(x:70,y:-270)
                 .opacity(opacityMessage ? 1 : 0)
-                .animation(.easeOut(duration: 1.5), value: opacityMessage)
+                .animation(.easeOut(duration: 1.5).delay(1.4), value: opacityMessage)
                 .font(
                     .callout
                         .weight(.black))
@@ -95,7 +95,7 @@ struct KiyoungDetailView: View {
             Text("너무 즐겁고 행복했어요!")
                 .offset(x:65,y:-240)
                 .opacity(opacityMessage ? 1 : 0)
-                .animation(.easeOut(duration: 1.5), value: opacityMessage)
+                .animation(.easeOut(duration: 1.5).delay(1.4), value: opacityMessage)
                 .font(
                     .callout
                         .weight(.black))
