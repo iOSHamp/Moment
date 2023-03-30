@@ -108,7 +108,7 @@ struct Home: View {
             
             }
         .onAppear() {
-            let song = NSDataAsset (name: "bycle")
+            let song = NSDataAsset (name: "reminiscenceCut")
             self.audio = try! AVAudioPlayer(data: song!.data, fileTypeHint: "mp3")
             self.audio.play()
         }
