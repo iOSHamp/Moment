@@ -38,7 +38,7 @@ struct DeckOfCards : View {
         
         ZStack{
             
-            Color.green
+            Color.black
             
             if showPotal {
                 Potal()
@@ -315,14 +315,25 @@ struct Potal:View {
             NavigationLink(destination: Home(), isActive: $goTogallery) {
                 EmptyView()
             }
-                            
             
-            Rectangle()
-                .frame(width: 300,height: 300)
-                .background(.red)
-                .onTapGesture {
-                    goTogallery = true
-                }
+            Button {
+                goTogallery = true
+            } label: {
+                Image("potal")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 300, height: 300)
+                         
+            }
+
+       
+            
+//            Rectangle()
+//                .frame(width: 300,height: 300)
+//                .background(.red)
+//                .onTapGesture {
+//                    goTogallery = true
+//                }
         }
         
         

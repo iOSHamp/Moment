@@ -30,7 +30,7 @@ struct DetailView: View {
                     .cornerRadius(15)
                     //.matchedGeometryEffect(id: photo, in: animation)
                 VStack(spacing: 15) { // 텍스트 뷰를 포함하는 VStack
-                    Text("Story") //제목
+                    Text("") //제목
                         .font(.largeTitle)
                         .fontWeight(.semibold)
                         .frame(maxWidth: .infinity, alignment: .leading)

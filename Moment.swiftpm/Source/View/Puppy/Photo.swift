@@ -28,4 +28,4 @@ var photos: [Photo] = [
 
 
 // MARK: Dummy Text
-var sampleText = "우리는 제이슨팀~~"
+var sampleText = ""

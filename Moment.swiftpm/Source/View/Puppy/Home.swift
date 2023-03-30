@@ -196,6 +196,7 @@ struct Home: View {
                 .fill(.ultraThinMaterial)
         }
         .ignoresSafeArea()
+        .navigationBarBackButtonHidden(true)
     }
 }
 
