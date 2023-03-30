@@ -10,7 +10,10 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                
+            
+                
                 DeckOfCards()
+                
                
                     
             }
@@ -29,15 +32,21 @@ struct DeckOfCards : View {
     let offset:Double = 2
     let dummies:[Int] = [0,3,7]
     
+    @State var showPotal:Bool = false
+    
     var body: some View {
         
         ZStack{
             
-            Color.black
+            Color.green
+            
+            if showPotal {
+                Potal()
+            }
             
             ForEach((0...limitOfCard), id: \.self) { index in
                 
-                Card(isEaster: !dummies.contains(limitOfCard-index)  ,title:"mainCard\(limitOfCard-index)"
+                Card(showPotal: $showPotal, isEaster: !dummies.contains(limitOfCard-index)  ,title:"mainCard\(limitOfCard-index)"
                      ,index:(limitOfCard-index)
                     )
                     .rotationEffect(Angle(degrees: offset * Double(index) ))
@@ -88,6 +97,9 @@ struct Card : View {
     @State var isFlipped = false
     @State var moveDetail = false
     @State var isHidden:Bool = false
+    
+    @Binding var showPotal:Bool
+    
     var isEaster:Bool
     
     let durationAndDelay : CGFloat = 0.2
@@ -110,6 +122,8 @@ struct Card : View {
     
     func goDetail() {
         
+        print("GOGO")
+        
         if isEaster {
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -119,8 +133,24 @@ struct Card : View {
                     
                     isHidden = true
                     
+                   
+                    
                 }
     
+            }
+            
+            
+            withAnimation() {
+                if index == 8 {
+                    
+                    
+                    withAnimation(Animation.easeInOut(duration: 2).delay(1)) {
+                        
+                        showPotal = true
+                    }
+                    
+                    
+                }
             }
         }
         
@@ -129,6 +159,9 @@ struct Card : View {
                 
                 withAnimation {
                     isHidden = true
+                    
+                   
+                    
                 }
                 
                 
@@ -164,7 +197,7 @@ struct Card : View {
 
             
         default:
-                AnyView(EmptyView())
+                return AnyView(EmptyView())
         }
         
         return AnyView(EmptyView())
@@ -221,11 +254,7 @@ struct Card : View {
             
             
         }
-        .onAppear{
-            
-            
-                    
-        }
+       
 
         
     }
@@ -271,6 +300,35 @@ struct ParticlesModifier: ViewModifier {
             }
         }
     }
+}
+
+
+
+struct Potal:View {
+    
+    @State var goTogallery:Bool = false
+    
+    var body: some View {
+        
+        ZStack{
+            
+            NavigationLink(destination: Home(), isActive: $goTogallery) {
+                EmptyView()
+            }
+                            
+            
+            Rectangle()
+                .frame(width: 300,height: 300)
+                .background(.red)
+                .onTapGesture {
+                    goTogallery = true
+                }
+        }
+        
+        
+        
+    }
+    
 }
 
 
