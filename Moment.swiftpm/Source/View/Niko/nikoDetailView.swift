@@ -124,7 +124,7 @@ struct nikoDetailView: View {
                         Button(action: {
                             self.showImage.toggle()
                         }) {
-                            Text("⓶ 웰빙 거기")
+                            Text("③ 웰빙 거기")
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(hex: 0x000000))
@@ -248,7 +248,7 @@ struct nikoDetailView: View {
                             .animation(.easeInOut(duration: 2.5), value: diarySheet)
                             .animation(.linear(duration: 2.5), value: diaryOpacity)
                         */
-                         Text("날짜: 23년 3월 28일                            날씨: 맑음")
+                         Text("날짜: 23년 3월 15일                            날씨: 맑음")
                             .offset(x:20, y:-390)
                             .foregroundColor(Color(hex: 0x7f6966))
                 
