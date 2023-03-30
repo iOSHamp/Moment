@@ -106,7 +106,7 @@ struct nikoDetailView: View {
                         Button(action: {
                             self.showImage.toggle()
                         }) {
-                            Text("⓵ 웰빙아울렛")
+                            Text("① 웰빙아울렛")
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(hex: 0x000000))
@@ -115,7 +115,7 @@ struct nikoDetailView: View {
                         Button(action: {
                             self.showImage.toggle()
                         }) {
-                            Text("⓶ 효자동 웰빙아울렛")
+                            Text("② 효자동 웰빙아울렛")
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(hex: 0x000000))
