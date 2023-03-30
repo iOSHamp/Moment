@@ -248,8 +248,8 @@ struct nikoDetailView: View {
                             .animation(.easeInOut(duration: 2.5), value: diarySheet)
                             .animation(.linear(duration: 2.5), value: diaryOpacity)
                         */
-                         Text("23.03.28")
-                            .offset(x:-120, y:-390)
+                         Text("날짜: 23년 3월 28일                            날씨: 맑음")
+                            .offset(x:20, y:-390)
                             .foregroundColor(Color(hex: 0x7f6966))
                 
                         
@@ -297,14 +297,14 @@ struct nikoDetailView: View {
                         .fontWeight(.semibold)
                         .offset(x:10, y:-125)
                         .foregroundColor(Color(hex: 0x7f6966))
-                    Text("#웰빙아울렛")
+                  /*  Text("#웰빙아울렛")
                         .fontWeight(.semibold)
                         .offset(x:140, y:-82)
-                        .foregroundColor(Color(hex: 0x9940ff))
+                        .foregroundColor(Color(hex: 0x9940ff)) */
                 }
 
                 }
-            .padding(.top,70)
+            .padding(.top,78)
             }
         }
     }
